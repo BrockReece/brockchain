@@ -3,11 +3,12 @@ const Block = require('./block')
 
 class BlockChain {
     constructor() {
+        this.genesisTime = Date.now()
         this.chain = [this.createGenesisBlock()]
     }
    
     createGenesisBlock() {
-        return new Block(Date.now(), {}, 0);
+        return new Block(this.genesisTime, {}, 0);
     }
 
     addBlock(block) {
@@ -31,11 +32,11 @@ class BlockChain {
 
     isChainValid() {
         const realGenesis = JSON.stringify(this.createGenesisBlock())
-    
+        
         if (realGenesis !== JSON.stringify(this.chain[0])) {
             return false
         }
-    
+
         for (let i = 1; i < this.chain.length; i++) {
             const currentBlock = this.chain[i]
         
