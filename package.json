@@ -1,0 +1,16 @@
+{
+  "name": "brockchain",
+  "version": "1.0.0",
+  "description": "block chain playground",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "brockreece@gmail.com",
+  "license": "ISC",
+  "dependencies": {
+    "crypto-js": "^3.1.9-1",
+    "elliptic": "^6.5.0",
+    "json-diff": "^0.5.4"
+  }
+}
