@@ -19,10 +19,25 @@ cli-color@~0.1.6:
   dependencies:
     es5-ext "0.8.x"
 
+clone@^1.0.2:
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/clone/-/clone-1.0.4.tgz#da309cc263df15994c688ca902179ca3c7cd7c7e"
+  integrity sha1-2jCcwmPfFZlMaIypAheco8fNfH4=
+
 crypto-js@^3.1.9-1:
   version "3.1.9-1"
   resolved "https://registry.yarnpkg.com/crypto-js/-/crypto-js-3.1.9-1.tgz#fda19e761fc077e01ffbfdc6e9fdfc59e8806cd8"
   integrity sha1-/aGedh/Ad+Af+/3G6f38WeiAbNg=
+
+deep-equal@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/deep-equal/-/deep-equal-1.0.1.tgz#f5d260292b660e084eff4cdbc9f08ad3247448b5"
+  integrity sha1-9dJgKStmDghO/0zbyfCK0yR0SLU=
+
+diff-match-patch@^1.0.4:
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/diff-match-patch/-/diff-match-patch-1.0.4.tgz#6ac4b55237463761c4daf0dc603eb869124744b1"
+  integrity sha512-Uv3SW8bmH9nAtHKaKSanOQmj2DnlH65fUpcrMdfdaOxUG02QQ4YGZ8AE7kKOMisF7UqvOlGKVYWRvezdncW9lg==
 
 difflib@~0.2.1:
   version "0.2.4"
@@ -92,6 +107,15 @@ json-diff@^0.5.4:
     difflib "~0.2.1"
     dreamopt "~0.6.0"
 
+json0-ot-diff@^1.0.4:
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/json0-ot-diff/-/json0-ot-diff-1.0.4.tgz#fea710d3655c8ed8410f960ebb9120ecfe0b3d30"
+  integrity sha512-rXoaTf12zBLLmQFe2lE6LtJwo4BigHK/mxF2fgjjun9fPj5Wv0x2ldZ+PyiYAxagNtB7yjGDTR69iZcNZg1Xfg==
+  dependencies:
+    clone "^1.0.2"
+    deep-equal "^1.0.1"
+    ot-json0 "^1.0.1"
+
 minimalistic-assert@^1.0.0, minimalistic-assert@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/minimalistic-assert/-/minimalistic-assert-1.0.1.tgz#2e194de044626d4a10e7f7fbc00ce73e83e4d5c7"
@@ -101,6 +125,11 @@ minimalistic-crypto-utils@^1.0.0, minimalistic-crypto-utils@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/minimalistic-crypto-utils/-/minimalistic-crypto-utils-1.0.1.tgz#f6c00c1c0b082246e5c4d99dfb8c7c083b2b582a"
   integrity sha1-9sAMHAsIIkblxNmd+4x8CDsrWCo=
+
+ot-json0@^1.0.1, ot-json0@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/ot-json0/-/ot-json0-1.1.0.tgz#f5edeff162673b62f0f136bb64724c40ac5e590d"
+  integrity sha512-wf5fci7GGpMYRDnbbdIFQymvhsbFACMHtxjivQo5KgvAHlxekyfJ9aPsRr6YfFQthQkk4bmsl5yESrZwC/oMYQ==
 
 wordwrap@>=0.0.2:
   version "1.0.0"
