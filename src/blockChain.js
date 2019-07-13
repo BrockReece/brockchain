@@ -1,5 +1,6 @@
 const jsonDiff = require('json-diff')
 const Block = require('./block')
+const { applyOperationalTransformations } = require('./ot')
 
 class BlockChain {
     constructor() {
@@ -53,11 +54,21 @@ class BlockChain {
     }
 
     showHistory() {
+        this.getWorldState(true)
+    }
+
+    getWorldState(logHistory = false) {
+        const state = this.createGenesisBlock().operations
         for (let i = 1; i < this.chain.length; i++) {
-            const currentBlock = this.chain[i]
-            const previousBlock = this.chain[i - 1]
-            console.log(currentBlock.author, jsonDiff.diffString(previousBlock.data, currentBlock.data))
+            const { operations, author } = this.chain[i]
+            const oldState = { ...state }
+            applyOperationalTransformations(state, operations)
+            
+            if (logHistory) {
+                console.log(author, jsonDiff.diffString(oldState, state))
+            }
         }
+        return state 
     }
 }
 
