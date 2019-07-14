@@ -1,7 +1,7 @@
-const ec = require('./keys')
-const Block = require('./block')
-const BlockChain = require('./blockChain')
-const { getOperationalTransformations, applyOperationalTransformations } = require('./ot')
+import ec from './keys'
+import Block from './block'
+import BlockChain from './blockChain'
+import { getOperationalTransformations } from './ot'
 
 // Use private key from keygen
 const myKey = ec.keyFromPrivate('624070edffb3bda30d8111e5bcd9ee477b3806cdddb011b66641208b72c0a574')
@@ -11,7 +11,7 @@ const myAuthorKey = myKey.getPublic('hex')
 const blockChain = new BlockChain()
 
 // Little helper for creating a block and adding to the chain
-const makeChange = (newState, bc) => {
+const makeChange = (newState:Object , bc:BlockChain) => {
     const state = bc.getWorldState()
     const operations = getOperationalTransformations(state, newState)
 
