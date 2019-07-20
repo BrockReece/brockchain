@@ -2,9 +2,9 @@ var SHA256 = require("crypto-js/sha256")
 const ec = require('./keys')
 
 class Block {
-    constructor (timestamp, data, author, previousHash = '') {
+    constructor (timestamp, operations, author, previousHash = '') {
         this.timestamp = timestamp
-        this.data = data
+        this.operations = operations
         this.author = author
         this.previousHash = previousHash
 
@@ -12,7 +12,7 @@ class Block {
     }
     
     calculateHash() {
-        return SHA256(this.timestamp + JSON.stringify(this.data) + this.author + this.previousHash).toString()
+        return SHA256(this.timestamp + JSON.stringify(this.operations) + this.author + this.previousHash).toString()
     }
 
     signTransaction(signingKey) {
