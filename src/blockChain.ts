@@ -1,18 +1,21 @@
-const jsonDiff = require('json-diff')
-const Block = require('./block')
-const { applyOperationalTransformations } = require('./ot')
+import jsonDiff from 'json-diff'
+import Block from './block'
+import { applyOperationalTransformations } from './ot'
 
-class BlockChain {
+export default class BlockChain {
+    genesisTime: number
+    chain: [ Block ]
+
     constructor() {
         this.genesisTime = Date.now()
         this.chain = [this.createGenesisBlock()]
     }
    
-    createGenesisBlock() {
-        return new Block(this.genesisTime, {}, 0);
+    createGenesisBlock(): Block {
+        return new Block(this.genesisTime, {}, '');
     }
 
-    addBlock(block) {
+    addBlock(block: Block) {
         if (!block.author) {
             throw new Error('Block must contain an author')
         } 
@@ -23,15 +26,15 @@ class BlockChain {
         this.chain.push(block)
     }
 
-    getLatestBlock() {
+    getLatestBlock(): Block {
         return this.chain[this.chain.length - 1]
     }
 
-    getLatestHash() {
+    getLatestHash(): string {
         return this.getLatestBlock().hash
     }
 
-    isChainValid() {
+    isChainValid(): boolean {
         const realGenesis = JSON.stringify(this.createGenesisBlock())
         
         if (realGenesis !== JSON.stringify(this.chain[0])) {
@@ -57,7 +60,7 @@ class BlockChain {
         this.getWorldState(true)
     }
 
-    getWorldState(logHistory = false) {
+    getWorldState(logHistory: boolean = false): object {
         const state = this.createGenesisBlock().operations
         for (let i = 1; i < this.chain.length; i++) {
             const { operations, author } = this.chain[i]
@@ -71,5 +74,3 @@ class BlockChain {
         return state 
     }
 }
-
-module.exports = BlockChain
